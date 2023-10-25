@@ -47,8 +47,9 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '/'=>'site/index',
-                'contact'=>'site/contact'
-
+                'contact'=>'site/contact',
+                'login'=>'site/login',
+                'logout'=>'site/logout'
             ],
         ],
 

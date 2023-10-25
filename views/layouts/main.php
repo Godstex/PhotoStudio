@@ -9,6 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\widgets\ActiveForm;
 
 const URL = 'http://localhost:8081/';
 
@@ -60,9 +61,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </ul>
         </div>
 
-      <div class="col-md-3 text-end">
-        <button type="button" style="width: 100px" class="btn btn btn-dark">Войти</button>
-      </div>
+      <?php if (!Yii::$app->user->isGuest): ?>
+          <div class="col-md-3 text-end">
+            <a href="<?= \yii\helpers\Url::to('logout') ?>"><button type="button" style="width: 100px" class="btn btn btn-dark">Выйти</button></a>
+        </div>
+      <?php else: ?>
+          <div class="col-md-3 text-end">
+              <a href="<?= \yii\helpers\Url::to('login') ?>"><button type="button" style="width: 100px" class="btn btn btn-dark">Войти</button></a>
+          </div>
+      <?php endif; ?>
     </header>
   </div>
 
