@@ -63,6 +63,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
       <?php if (!Yii::$app->user->isGuest): ?>
           <div class="col-md-3 text-end">
+              <p><?php $user = \app\models\User::findOne(Yii::$app->user->getId()); echo $user['last_name'].' '.$user['first_name']  ?></p>
             <a href="<?= \yii\helpers\Url::to('logout') ?>"><button type="button" style="width: 100px" class="btn btn btn-dark">Выйти</button></a>
         </div>
       <?php else: ?>

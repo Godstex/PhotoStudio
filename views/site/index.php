@@ -1,7 +1,6 @@
 <?php
 
 $this->title = 'Главная страница';
-
 ?>
 
 <img style="margin-left: 5%" src="<?= \yii\helpers\Url::to('img/SavePhoto.png') ?>" alt="Фото">

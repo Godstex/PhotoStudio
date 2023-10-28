@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +62,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        if (!Yii::$app->user->isGuest){
+
+            $user = User::find(Yii::$app->user->getId())->asArray()->all();
+
+            return $this->render('index',[
+                'user'=>$user
+            ]);
+        }
+        return $this->render('index',['user'=>'GG']);
     }
 
     public function actionContact(){
@@ -72,6 +81,10 @@ class SiteController extends Controller
         $model = new LoginForm();
 
         if ($model->load(\Yii::$app->request->post()) && $model->login()){
+
+            if (User::findOne(Yii::$app->user->getId())['login'] == 'admin'){
+                return $this->redirect('admin');
+            }
             return $this->goHome();
         }
 
