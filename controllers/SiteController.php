@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Studio;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -61,7 +63,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index',[
+            'studio'=>Studio::find()->asArray()->all()
+        ]);
     }
 
     public function actionContact(){
@@ -72,6 +76,9 @@ class SiteController extends Controller
         $model = new LoginForm();
 
         if ($model->load(\Yii::$app->request->post()) && $model->login()){
+            if (User::findOne(Yii::$app->user->getId())['login'] == 'admin'){
+                return $this->redirect('studio');
+            }
             return $this->goHome();
         }
 

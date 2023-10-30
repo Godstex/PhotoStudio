@@ -49,7 +49,10 @@ $config = [
                 '/'=>'site/index',
                 'contact'=>'site/contact',
                 'login'=>'site/login',
-                'logout'=>'site/logout'
+                'logout'=>'site/logout',
+                'studio'=>'studio/index',
+                'studio/create'=>'studio/create',
+                'buy-studio'=>'buy-studio/index'
             ],
         ],
 

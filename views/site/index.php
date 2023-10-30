@@ -11,57 +11,33 @@ $this->title = 'Главная страница';
 
 <?php if (!Yii::$app->user->isGuest): ?>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="feature col" style="background: #D9D9D9; padding: 10px;">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Male.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Мале</p>
-            </div>
-              <div style="background: black; border-radius: 10px"  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Забронировать</p>
-            </div>
-          </div>
-          <div class="feature col" style="background: #D9D9D9; padding: 10px">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Tony.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Тони</p>
-            </div>
-              <div style="background: black; border-radius: 10px"  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Забронировать</p>
-            </div>
-          </div>
 
+        <?php foreach ($studio as $item): ?>
             <div class="feature col" style="background: #D9D9D9; padding: 10px">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Kair.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Каир</p>
+                <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/'.unserialize($item['img'])) ?>" alt="<?= $item['name'] ?>">
+                <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
+                    <p style="color: white; font-size: 42px; font-family: Inter,serif;"><?= $item['name'] ?></p>
+                </div>
+                  <div style="background: black; border-radius: 10px"  align="center">
+                      <a href="<?= \yii\helpers\Url::to(['rent','id'=>$item['id']]) ?>" style="color: white; font-size: 42px; font-family: Inter,serif; text-decoration: none">Забронировать</a>
+                </div>
             </div>
-              <div style="background: black; border-radius: 10px"  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Забронировать</p>
-            </div>
-          </div>
+
+        <?php endforeach; ?>
     </div>
     <?php else: ?>
 
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="feature col" style="background: #D9D9D9; padding: 10px">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Male.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Мале</p>
-            </div>
-          </div>
-          <div class="feature col" style="background: #D9D9D9; padding: 10px">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Tony.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Тони</p>
-            </div>
-          </div>
-
+        <?php foreach ($studio as $item): ?>
             <div class="feature col" style="background: #D9D9D9; padding: 10px">
-            <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/Kair.png') ?>" alt="Male">
-            <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                <p style="color: white; font-size: 42px; font-family: Inter,serif;">Каир</p>
+                <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/'.unserialize($item['img'])) ?>" alt="<?= $item['name'] ?>">
+                <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
+                    <p style="color: white; font-size: 42px; font-family: Inter,serif;"><?= $item['name'] ?></p>
+                </div>
             </div>
-          </div>
+        <?php endforeach; ?>
+
+
     </div>
 <?php endif; ?>
 
