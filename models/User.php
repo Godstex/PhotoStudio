@@ -7,6 +7,13 @@ use yii\web\IdentityInterface;
 
 class User extends ActiveRecord implements IdentityInterface
 {
+
+    public $first_name;
+    public $last_name;
+    public $patronymic;
+    public $login;
+    public $password;
+
     public static function findIdentity($id)
     {
         return User::findOne($id);

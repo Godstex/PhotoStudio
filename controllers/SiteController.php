@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\models\Studio;
 use app\models\User;
+use app\models\Users;
+use PHPUnit\Util\Exception;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -85,6 +87,30 @@ class SiteController extends Controller
         return $this->render('login',[
             'model'=>$model
         ]);
+    }
+
+    public function actionRegister(){
+        if (Yii::$app->request->isPost){
+
+            $post = Yii::$app->request->post();
+            $model = new Users();
+
+            $model->first_name = $post['first_name'];
+            $model->last_name = $post['last_name'];
+            $model->patronimyc = $post['patronymic'];
+            $model->login = $post['login'];
+            $model->password = $post['password'];
+
+            if ($model->save()){
+                return $this->goHome();
+            } else{
+                die('Error');
+            }
+
+            return $this->goHome();
+        }
+
+        return $this->render('register');
     }
 
     public function actionLogout(){

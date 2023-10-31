@@ -52,7 +52,8 @@ $config = [
                 'logout'=>'site/logout',
                 'studio'=>'studio/index',
                 'studio/create'=>'studio/create',
-                'buy-studio'=>'buy-studio/index'
+                'buy-studio'=>'buy-studio/index',
+                'register'=>'site/register'
             ],
         ],
 

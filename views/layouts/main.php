@@ -68,6 +68,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       <?php else: ?>
           <div class="col-md-3 text-end">
               <a href="<?= \yii\helpers\Url::to('login') ?>"><button type="button" style="width: 100px" class="btn btn btn-dark">Войти</button></a>
+              <a href="<?= \yii\helpers\Url::to('register') ?>"><button type="button" style="width: 120px" class="btn btn btn-dark">Регистрация</button></a>
           </div>
       <?php endif; ?>
     </header>
