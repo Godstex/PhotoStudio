@@ -48,11 +48,13 @@ $config = [
             'rules' => [
                 '/'=>'site/index',
                 'contact'=>'site/contact',
+                'rent-studio'=>'site/rent-studio',
                 'login'=>'site/login',
                 'logout'=>'site/logout',
                 'studio'=>'studio/index',
                 'studio/create'=>'studio/create',
                 'buy-studio'=>'buy-studio/index',
+                'rent'=>'buy-studio/rent',
                 'register'=>'site/register'
             ],
         ],

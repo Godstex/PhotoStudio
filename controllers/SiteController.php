@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\BuyStudio;
 use app\models\Studio;
 use app\models\User;
 use app\models\Users;
@@ -66,7 +67,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index',[
-            'studio'=>Studio::find()->asArray()->all()
+            'studio'=>Studio::find()->asArray()->all(),
+            'user'=>!Yii::$app->user->isGuest ? User::find()->where(['id'=>Yii::$app->user->getId()])->asArray()->all()[0] : ''
         ]);
     }
 
@@ -111,6 +113,12 @@ class SiteController extends Controller
         }
 
         return $this->render('register');
+    }
+
+    public function actionRentStudio(){
+        return $this->render('rent-studio',[
+           'model'=>BuyStudio::find()->where(['user_id'=>Yii::$app->user->getId()])->asArray()->all()
+        ]);
     }
 
     public function actionLogout(){

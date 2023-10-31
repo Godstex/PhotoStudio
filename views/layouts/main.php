@@ -46,16 +46,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <?php if ((yii\helpers\Url::current([], true) == URL)): ?>
                     <li><a href="/" style="font-size: 22px; font-family: Inter; font-weight: 400; text-decoration: underline; word-wrap: break-word; color: black" class="px-2 nav-link">Главная</a></li>
                     <?php if (!Yii::$app->user->isGuest): ?>
-                        <li><a href="#" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="nav-link px-2">Забронировать</a></li>
+                        <li><a href="#studio" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="nav-link px-2">Забронировать</a></li>
+                        <li><a href="<?= \yii\helpers\Url::to('rent-studio') ?>" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="nav-link px-2">Заброненные студии</a></li>
                     <?php endif; ?>
                     <li><a href="<?= \yii\helpers\Url::to('contact') ?>" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="nav-link px-2">Контакты</a></li>
                 <?php endif;?>
 
                 <?php if ((yii\helpers\Url::current([], true) == URL.'contact')): ?>
                     <li><a href="/" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="px-2 nav-link">Главная</a></li>
-                    <?php if (!Yii::$app->user->isGuest): ?>
-                        <li><a href="#" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: black" class="nav-link px-2">Забронировать</a></li>
-                    <?php endif; ?>
                     <li><a href="<?= \yii\helpers\Url::to('contact') ?>" style="font-size: 22px; font-family: Inter; font-weight: 400; text-decoration: underline; word-wrap: break-word; color: black" class="nav-link px-2">Контакты</a></li>
                 <?php endif;?>
             </ul>
@@ -105,7 +103,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><a href="/" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: gray"  class="nav-link p-0 text-body-secondary">Главная</a></li>
           <?php if (!Yii::$app->user->isGuest): ?>
-              <li class="nav-item mb-2"><a href="#" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: gray"  class="nav-link p-0 text-body-secondary">Бронирование</a></li>
+              <li class="nav-item mb-2"><a href="#studio" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: gray"  class="nav-link p-0 text-body-secondary">Бронирование</a></li>
           <?php endif; ?>
         <li class="nav-item mb-2"><a href="<?= \yii\helpers\Url::to('contact') ?>" style="font-size: 22px; font-family: Inter; font-weight: 400; word-wrap: break-word; color: gray"  class="nav-link p-0 text-body-secondary">Контакты</a></li>
       </ul>

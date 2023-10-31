@@ -4,27 +4,29 @@ $this->title = 'Главная страница';
 
 ?>
 
+<?= $user !='' ? '<h1 style="margin-bottom: 20px">Добро пожаловать '.$user['last_name'].' '.$user['first_name'].'</h1>' : '' ?>
+
 <img style="margin-left: 5%" src="<?= \yii\helpers\Url::to('img/SavePhoto.png') ?>" alt="Фото">
 <img style="margin-left: 15%; margin-top: 87px" src="<?= \yii\helpers\Url::to('img/SimpleInfo.png') ?>" alt="Фото">
 
 <p style="font-size: 42px; margin-top: 50px"><strong>Залы нашей фотостудии</strong></p>
 
 <?php if (!Yii::$app->user->isGuest): ?>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-
-        <?php foreach ($studio as $item): ?>
-            <div class="feature col" style="background: #D9D9D9; padding: 10px">
-                <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/'.unserialize($item['img'])) ?>" alt="<?= $item['name'] ?>">
-                <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
-                    <p style="color: white; font-size: 42px; font-family: Inter,serif;"><?= $item['name'] ?></p>
+    <section id="studio">
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <?php foreach ($studio as $item): ?>
+                <div class="feature col" style="background: #D9D9D9; padding: 10px">
+                    <img width="420" height="300" src="<?= \yii\helpers\Url::to('img/'.unserialize($item['img'])) ?>" alt="<?= $item['name'] ?>">
+                    <div style="background: black; border-radius: 0 0 10px 10px "  align="center">
+                        <p style="color: white; font-size: 42px; font-family: Inter,serif;"><?= $item['name'] ?></p>
+                    </div>
+                      <div style="background: black; border-radius: 10px"  align="center">
+                          <a href="<?= \yii\helpers\Url::to(['../buy-studio','id'=>$item['id']]) ?>" style="color: white; font-size: 42px; font-family: Inter,serif; text-decoration: none">Забронировать</a>
+                    </div>
                 </div>
-                  <div style="background: black; border-radius: 10px"  align="center">
-                      <a href="<?= \yii\helpers\Url::to(['rent','id'=>$item['id']]) ?>" style="color: white; font-size: 42px; font-family: Inter,serif; text-decoration: none">Забронировать</a>
-                </div>
-            </div>
-
-        <?php endforeach; ?>
-    </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
     <?php else: ?>
 
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
@@ -36,8 +38,6 @@ $this->title = 'Главная страница';
                 </div>
             </div>
         <?php endforeach; ?>
-
-
     </div>
 <?php endif; ?>
 
