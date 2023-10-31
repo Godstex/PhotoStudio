@@ -33,4 +33,11 @@ class BuyStudioController extends \yii\web\Controller
             return $this->goHome();
     }
 
+    public function actionTable(){
+        $this->layout = 'admin';
+        return $this->render('table',[
+            'model'=>BuyStudio::find()->asArray()->all()
+        ]);
+    }
+
 }

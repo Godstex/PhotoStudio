@@ -80,7 +80,7 @@ class SiteController extends Controller
         $model = new LoginForm();
 
         if ($model->load(\Yii::$app->request->post()) && $model->login()){
-            if (User::findOne(Yii::$app->user->getId())['login'] == 'admin'){
+            if (User::find()->where(['id'=>Yii::$app->user->getId()])->asArray()->all()[0]['login'] == 'admin'){
                 return $this->redirect('studio');
             }
             return $this->goHome();

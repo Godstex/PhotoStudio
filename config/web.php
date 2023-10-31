@@ -54,6 +54,7 @@ $config = [
                 'studio'=>'studio/index',
                 'studio/create'=>'studio/create',
                 'buy-studio'=>'buy-studio/index',
+                'buy-studio/table'=>'buy-studio/table',
                 'rent'=>'buy-studio/rent',
                 'register'=>'site/register'
             ],

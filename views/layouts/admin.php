@@ -39,7 +39,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             'items' => [
                 ['label' => 'На главную страницу', 'url' => ['/logout']],
                 ['label' => 'Студии', 'url' => ['/studio']],
-                ['label' => 'Список аренд студий','url'=>['/buy-studio']]
+                ['label' => 'Список аренд студий','url'=>['/buy-studio/table']]
             ]
         ]);
         NavBar::end();
